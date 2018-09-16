@@ -1,0 +1,27 @@
+@defaults
+    group = international
+    system = mks
+@end
+
+bit = [information]
+byte = 8 * bit = b = octet
+baud = bit / second = Bd = bps
+
+kilo- =  1e3   = k-
+mega- =  1e6   = m-
+giga- =  1e9   = g-
+tera- =  1e12  = t-
+peta- =  1e15  = p-
+exa- =   1e18  = e-
+zetta- = 1e21  = z-
+yotta- = 1e24  = y-
+
+# binary_prefixes
+kibi- = 2**10 = Ki-
+mebi- = 2**20 = Mi-
+gibi- = 2**30 = Gi-
+tebi- = 2**40 = Ti-
+pebi- = 2**50 = Pi-
+exbi- = 2**60 = Ei-
+zebi- = 2**70 = Zi-
+yobi- = 2**80 = Yi-
