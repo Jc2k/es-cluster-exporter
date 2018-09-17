@@ -1,6 +1,6 @@
 FROM alpine:3.8 AS builder
 
-RUN apk --no-cache add python3-dev gcc
+RUN apk --no-cache add python3-dev musl-dev gcc
 RUN python3 -m venv /app
 
 COPY requirements.txt /requirements.txt
