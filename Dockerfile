@@ -11,6 +11,8 @@ FROM alpine:3.8
 
 ENV PYTHONUNBUFFERED 1
 
+RUN apk --no-cache add python3
+
 COPY requirements.txt /requirements.txt
 COPY --from=builder /app /app
 COPY exporter.py /app/bin/es-cluster-exporter
