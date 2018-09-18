@@ -46,7 +46,7 @@ class ElasticsearchCollector(object):
         self.shards = shards
 
     def collect(self):
-        labels = ['pattern', 'index', 'shard', 'node', 'type']
+        labels = ['pattern', 'index', 'shard', 'node', 'type', 'state']
 
         doc_count = GaugeMetricFamily(
             'escluster_shards_documents',
@@ -61,7 +61,7 @@ class ElasticsearchCollector(object):
         )
 
         for shard in self.shards:
-           label = (find_pattern(self.patterns, shard['index']), shard['index'], shard['shard'], shard['node'], shard['type'])
+           label = (find_pattern(self.patterns, shard['index']), shard['index'], shard['shard'], shard['node'], shard['type'], shard['state'])
            doc_count.add_metric(label, shard['count'])
            bytes.add_metric(label, shard['bytes'])
 
