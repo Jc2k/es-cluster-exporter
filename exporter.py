@@ -102,6 +102,7 @@ async def get_shards(session):
             "bytes": int(ureg(shard['store']).to('byte').m),
             "count": int(shard['docs']),
             "node": shard['node'],
+            "state": shard['state'],
             "type": "primary" if shard['prirep'] == 'p' else 'replica',
         })
 
