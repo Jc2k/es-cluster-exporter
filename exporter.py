@@ -96,10 +96,17 @@ async def get_shards(session):
     result = await session.get(ELASTICSEARCH_HOST + '_cat/shards?format=json')
     payload = await result.json()
     for shard in payload:
+        try:
+            size = int(ureg(shard['store']).to('byte').m)
+        except Exception as e:
+            print(e)
+            print(shard['store'])
+            continue
+
         shards.append({
             "index": shard['index'],
             "shard": shard['shard'],
-            "bytes": int(ureg(shard['store']).to('byte').m),
+            "bytes": size,
             "count": int(shard['docs']),
             "node": shard['node'],
             "state": shard['state'],
